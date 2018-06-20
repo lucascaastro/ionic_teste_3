@@ -1,0 +1,32 @@
+
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-icon ios="ios-contact" style="font-size: 95px; margin-left: 105px;" md="md-contact"></ion-icon>
+        <p text-center>{{authProvider.userDetails ? 'Bem Vindo ' + authProvider.userDetails.email : ''}}</p>
+        <ion-list>
+            <button *ngIf="!(authProvider.user | async)" menuClose ion-item icon-start (click)="goToLoginPage()">
+                <ion-icon name="person" item-start></ion-icon>
+                Login
+            </button>
+            <button *ngIf="authProvider.user | async" menuClose ion-item icon-start (click)="goToLoginPage()">
+                    <ion-icon ios="md-contacts" style="margin-top:8px;" md="md-contacts"></ion-icon>
+                Lista de Livros
+            </button>
+            <button *ngIf="authProvider.user | async" menuClose ion-item icon-start (click)="onLogout()">
+                    <ion-icon ios="md-power" style="margin-top:8px;" md="md-power"></ion-icon>
+                Logout
+            </button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<!--<ion-nav [root]="rootPage" #content swipeBackEnabled="false"  #content></ion-nav>-->
+<ion-nav [root]="rootPage" #content  swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-icon ios="ios-contact" style="font-size: 95px; margin-left: 105px;" md="md-contact"></ion-icon>
+  <ion-item>
+    <ion-label floating><ion-icon ios="ios-mail" md="sm-mail"></ion-icon> Email</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating><ion-icon ios="md-key" md="md-key"></ion-icon> Senha</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <button ion-button block (click)="login(user)">Logar</button>
+  <button ion-button block color="light" (click)="register(user)">Registrar</button>
+
+  <p ion-text color="danger">{{error}}</p>
+</ion-content>
